@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title></title>
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/league.css" id="theme" />
+    <link rel="stylesheet" href="plugin/highlight/zenburn.css" />
+	<link rel="stylesheet" href="css/layout.css" />
+	<link rel="stylesheet" href="plugin/customcontrols/style.css">
+
+
+
+    <script defer src="dist/fontawesome/all.min.js"></script>
+
+	<script type="text/javascript">
+		var forgetPop = true;
+		function onPopState(event) {
+			if(forgetPop){
+				forgetPop = false;
+			} else {
+				parent.postMessage(event.target.location.href, "app://obsidian.md");
+			}
+        }
+		window.onpopstate = onPopState;
+		window.onmessage = event => {
+			if(event.data == "reload"){
+				window.document.location.reload();
+			}
+			forgetPop = true;
+		}
+
+		function fitElements(){
+			const itemsToFit = document.getElementsByClassName('fitText');
+			for (const item in itemsToFit) {
+				if (Object.hasOwnProperty.call(itemsToFit, item)) {
+					var element = itemsToFit[item];
+					fitElement(element,1, 1000);
+					element.classList.remove('fitText');
+				}
+			}
+		}
+
+		function fitElement(element, start, end){
+
+			let size = (end + start) / 2;
+			element.style.fontSize = `${size}px`;
+
+			if(Math.abs(start - end) < 1){
+				while(element.scrollHeight > element.offsetHeight){
+					size--;
+					element.style.fontSize = `${size}px`;
+				}
+				return;
+			}
+
+			if(element.scrollHeight > element.offsetHeight){
+				fitElement(element, start, size);
+			} else {
+				fitElement(element, size, end);
+			}		
+		}
+
+
+		document.onreadystatechange = () => {
+			fitElements();
+			if (document.readyState === 'complete') {
+				if (window.location.href.indexOf("?export") != -1){
+					parent.postMessage(event.target.location.href, "app://obsidian.md");
+				}
+				if (window.location.href.indexOf("print-pdf") != -1){
+					let stateCheck = setInterval(() => {
+						clearInterval(stateCheck);
+						window.print();
+					}, 250);
+				}
+			}
+	};
+
+
+        </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Et si trop d'école tuait l'éducation? 
+
+Nathanaël Friant
+
+Université libre de Bruxelles
+
+Sciences de l'éducation
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Contexte
+
+- Cours EDUCE3002
+- Travail sur le livre "L'emprise scolaire" de François Dubet et Marie Duru-Bellat (2024)
+- Témoignages d'étudiants
+- Ensuite, on analyse ensemble
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+> _"En secondaire, il y avait des matières pour lesquelles j'apprenais simplement mes cours par coeur pour les examens sans jamais vraiment essayer de comprendre. Par exemple, en histoire, je mémorisais tout par coeur afin de tout ressortir le jour de l'examen. Mon objectif était de réussir mon examen et non pas d'apprendre des informations en histoire."_
+
+<aside class="notes"><p>Ce témoignage illustre parfaitement la dimension instrumentale du rapport aux études décrite par Dubet et Duru-Bellat.</p>
+<p>Remarque: les témoignages projetés ont été corrigés sur la forme tout en respectant le fond</p>
+</div></aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+> _"Quand j'étais plus jeune, un professeur de secondaire m'a demandé ce que je voulais faire dans la vie. Lorsque je lui ai répondu que je souhaitais devenir institutrice primaire, il a été choqué. Il m'a dit que je pouvais faire bien mieux, compte tenu de mes bons résultats scolaires."_
+
+<aside class="notes"><p>On voit ici comment le mérite scolaire est supposé déterminer l&#39;orientation professionnelle, indépendamment des aspirations personnelles.</p>
+</div></aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+> _"Une amie voulait choisir des études littéraires, mais ses parents voulaient qu'elle choisisse des études de médecine ou d'ingénieur. Elle a subi une pression et a donc finit par céder et à faire médecine."_
+
+<aside class="notes"><p>Ce témoignage montre comment l&#39;emprise scolaire se manifeste dans les choix familiaux et les pressions exercées sur les jeunes.</p>
+</div></aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+> _"Ma soeur à fini par associer son estime d'elle-même presque uniquement à ses notes, malgré ses activités extra-scolaire censées la libérer. Quand elle n'a pas de très bonnes notes elle pleure souvent et essaie de ne pas montrer son résultat à ses parents même si dans d'autres domaines elle s'épanouit."_
+
+<aside class="notes"><p>Ce témoignage illustre le mécanisme d&#39;internalisation du mérite scolaire et son impact sur l&#39;estime de soi.</p>
+</div></aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+> *"En tant qu'enseignant, je dirais que les trois quarts des questions que je reçois de la part des étudiants concernent la façon de réussir l'examen (type de questions, mise à disposition des supports, points négatifs ou non, points bonus...). J'aimerais avoir plus d'échanges sur le contenu de ce qu'on a travaillé"*
+
+<aside class="notes"><p>Ce témoignage est de moi :-)</p>
+</div></aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### L'emprise scolaire
+
+L'emprise scolaire désigne l'influence déterminante du système éducatif sur la société. 
+
+Dubet et Duru-Bellat (2024) soutiennent qu'elle est devenue si forte qu'elle produit des effets pervers qui fragilisent l'éducation elle-même.
+
+<aside class="notes"><p>Voyons d&#39;abord comment on est passés à ce monde où l&#39;emprise scolaire est aussi importante.</p>
+</div></aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+#### 1. L'influence du diplôme sur les trajectoires
+
+- Le passage de l'**ascription** (positions héritées) à l'**achievement** (positions acquises)
+
+
+> "L'école a acquis une sorte _de monopole du tri_ des individus"
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+#### 2. Le monopole scolaire de la définition du mérite
+
+- Le mérite scolaire est la forme dominante du mérite dans la société
+- Il est supposé objectif, mesurable et universel
+- Les inégalités en deviennent "légitimes" car la compétition est perçue comme équitable
+- L'école a la prétention à définir un mérite juste et scientifique
+
+
+<aside class="notes"><p>Le mérite scolaire est devenu LA forme légitime du mérite dans la société et le fondement de la méritocratie. Ce principe de justice suppose une égalité des chances qui reste largement théorique. La sociologie et la psychologie sociale montrent que l&#39;idéologie méritocratique est intériorisée par tous, y compris par ceux qu&#39;elle désavantage.</p>
+</div></aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+#### 3. Vainqueurs et vaincus de la méritocratie
+
+- Les vainqueurs: certitude de mériter leur réussite
+- Les vaincus: sentiment d'humiliation et de dévalorisation
+- Impact sur la démocratie: orgueil des uns, ressentiment des autres
+- Crée le terreau des populismes
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+#### 4. L'emprise scolaire sur le travail
+
+- La définition du mérite professionnel par le diplôme
+- La disqualification des compétences non académiques
+
+<aside class="notes"><p>L&#39;emprise scolaire affaiblit d&#39;autres formes de mérite, notamment celui qui se construit dans le travail lui-même.</p>
+</div></aside></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+#### 5. La colonisation de l'éducation par la forme scolaire
+
+- Education familiale orientée vers la réussite scolaire
+- Dévalorisation des apprentissages non scolaires
+- "Toute bonne éducation est celle qui favorise la réussite scolaire"
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Quelques conséquences dans l'expérience scolaire
+
+ 1. Le stress scolaire
+ 2. L'utilitarisme scolaire
+
+>*"On ne choisit pas toujours les mathématiques par goût pour les mathématiques, mais parce que les mathématiques sont rentables."*
+
+3. Le métier d'enseignant transformé
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Pour aller plus loin
+
+- Delvaux, B. (2015). _Une tout autre École_. [lien vers le livre](https://dial.uclouvain.be/pr/boreal/object/boreal:214100)
+- Dubet, F., & Duru-Bellat, M. (2024). _L'emprise scolaire_. Seuil. [lien vers le livre](https://shs-cairn-info.ezproxy.ulb.ac.be/l-emprise-scolaire--9782724643008?lang=fr)
+- Dubet, F. (2004). _L'école des chances : Qu'est-ce qu'une école juste ?_ Seuil.
+- Duru-Bellat, M. (2009). _Le mérite contre la justice_. Presses de Sciences Po.
+- Duru-Bellat, M. (2022). Les inégalités sociales à l’école,en parler sans démobiliser : Articuler sociologie et psychologie sociale. _Les Sciences de l’éducation - Pour l’Ère nouvelle_, _55_(2), 11‑27. [https://doi.org/10.3917/lsdle.552.0011](https://doi.org/10.3917/lsdle.552.0011)
+- Merle, P. (2017). _La démocratisation de l'enseignement_ (3e éd.). La Découverte.
+</div></script></section></div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script src="plugin/zoom/zoom.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/math/math.js"></script>
+	<script src="plugin/mermaid/mermaid.js"></script>
+	<script src="plugin/chart/chart.min.js"></script>
+	<script src="plugin/chart/plugin.js"></script>
+	<script src="plugin/menu/menu.js"></script>
+	<script src="plugin/customcontrols/plugin.js"></script>
+
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+	  function isLight(color) {
+		let hex = color.replace('#', '');
+
+		// convert #fff => #ffffff
+		if(hex.length == 3){
+			hex = `${hex[0]}${hex[0]}${hex[1]}${hex[1]}${hex[2]}${hex[2]}`;
+		}
+
+		const c_r = parseInt(hex.substr(0, 2), 16);
+		const c_g = parseInt(hex.substr(2, 2), 16);
+		const c_b = parseInt(hex.substr(4, 2), 16);
+		const brightness = ((c_r * 299) + (c_g * 587) + (c_b * 114)) / 1000;
+		return brightness > 155;
+	}
+
+	var bgColor = getComputedStyle(document.documentElement).getPropertyValue('--r-background-color').trim();
+	var isLight = isLight(bgColor);
+
+	if(isLight){
+		document.body.classList.add('has-light-background');
+	} else {
+		document.body.classList.add('has-dark-background');
+	}
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealZoom,
+          RevealNotes,
+          RevealMath.MathJax3,
+		  RevealMermaid,
+		  RevealChart,
+		  RevealCustomControls,
+		  RevealMenu,
+        ],
+
+
+    	allottedTime: 120 * 1000,
+
+		mathjax3: {
+			mathjax: 'plugin/math/mathjax/tex-mml-chtml.js',
+		},
+		markdown: {
+		  gfm: true,
+		  mangle: true,
+		  pedantic: false,
+		  smartLists: false,
+		  smartypants: false,
+		},
+
+		mermaid: {
+			theme: isLight ? 'default' : 'dark',
+		},
+
+		customcontrols: {
+			controls: [
+				{id: 'toggle-overview',
+				title: 'Toggle overview (O)',
+				icon: '<i class="fa fa-th"></i>',
+				action: 'Reveal.toggleOverview();'
+				},
+			]
+		},
+		menu: {
+			loadIcons: false
+		}
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal().getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"width":960,"height":700,"margin":0.04,"controls":true,"progress":true,"slideNumber":true,"showNotes":false,"transition":"slide","transitionSpeed":"fast"}, queryOptions);
+    </script>
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+
+  <!-- created with Advanced Slides -->
+</html>
